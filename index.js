@@ -14,4 +14,11 @@ const rollBtn = document.getElementById('rollBtn')
 const resetBtn = document.getElementById('resetBtn')
 
 
+// add event listener to roll dice button.  Have it
+// log out a random number between 1 and 6 inclusive
+const handleRollClick = () => {
+ let randomNum = Math.ceil(Math.random() * 6)
+ console.log( randomNum )
+}
 
+rollBtn.addEventListener('click', handleRollClick)
