@@ -14,8 +14,8 @@ const resetBtn = document.getElementById('resetBtn')
 
 const displayResetButton = () => {
   rollBtn.style.display = 'none'  
-      resetBtn.style.display = 'block'
-      resetBtn.style.margin = '30px auto'
+  resetBtn.style.display = 'block'
+  resetBtn.style.margin = '30px auto'
 }
 
 
@@ -57,5 +57,26 @@ const handleRollClick = () => {
   player1Turn = !player1Turn
 }
 
+const handleResetClick = () => {
+   player1Score = 0
+   player2Score = 0
+   player1Turn = true
+
+  resetBtn.style.display = 'none'
+  rollBtn.style.display = 'block'
+  rollBtn.style.margin = '30px auto'
+
+  message.textContent = 'Player 1 Turn'
+  player1Scoreboard.textContent = "0"
+  player2Scoreboard.textContent = '0'
+  player1Dice.textContent = '-'
+  player2Dice.textContent = '-'
+  player2Dice.classList.remove('active')
+  player1Dice.classList.add('active')
+  
+}
+
+ 
 rollBtn.addEventListener('click', handleRollClick)
 
+resetBtn.addEventListener('click', handleResetClick)
