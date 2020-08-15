@@ -1,5 +1,4 @@
 // Create variables for game state:
-
 let player1Score = 0
 let player2Score = 0
 let player1Turn = true
@@ -19,13 +18,25 @@ const handleRollClick = () => {
  let randomNum = Math.ceil(Math.random() * 6)
  
   if ( player1Turn ) {
-    console.log(`Player 1 rolled a ${ randomNum }`)
+    player1Score += randomNum
+    player1Scoreboard.textContent = player1Score
+    player2Dice.classList.remove('active')
+    player1Dice.classList.add('active')
+    player1Dice.textContent = randomNum
+    message.textContent = 'It\'s Player 2 Turn'
+    
+
   } else {
-    console.log(`Player 2 rolled a ${ randomNum }`)
+    player2Score += randomNum
+    player2Scoreboard.textContent = player2Score
+    player1Dice.classList.remove('active')
+    player2Dice.classList.add('active')
+    player2Dice.textContent = randomNum
+    message.textContent = 'It\'s Player 1 Turn'
   } 
+
   player1Turn = !player1Turn
 }
-
 
 
 rollBtn.addEventListener('click', handleRollClick)
